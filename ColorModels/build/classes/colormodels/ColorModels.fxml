@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="colormodels.ColorModelsController">
+    <children>
+        <Label fx:id="label" layoutX="280.0" layoutY="25.0" minHeight="16" minWidth="69" text="Choose color">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+        <ColorPicker fx:id="colorPicker" layoutX="299.0" layoutY="89.0" onAction="#handlePickerAction" />
+      <Label layoutX="27.0" layoutY="179.0" text="RGB">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label layoutX="29.0" layoutY="283.0" text="XYZ">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label layoutX="24.0" layoutY="394.0" text="CMYK, %">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <TextField fx:id="rText" alignment="CENTER" layoutX="173.0" layoutY="179.0" onAction="#handleRGBAction" prefHeight="39.0" prefWidth="59.0" promptText="R">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="gText" alignment="CENTER" layoutX="309.0" layoutY="179.0" onAction="#handleRGBAction" prefHeight="39.0" prefWidth="59.0" promptText="G">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="bText" alignment="CENTER" layoutX="445.0" layoutY="179.0" onAction="#handleRGBAction" prefHeight="39.0" prefWidth="59.0" promptText="B">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yText2" alignment="CENTER" layoutX="445.0" layoutY="388.0" onAction="#handleCMYKAction" prefHeight="39.0" prefWidth="59.0" promptText="Y">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mText" alignment="CENTER" layoutX="309.0" layoutY="388.0" onAction="#handleCMYKAction" prefHeight="39.0" prefWidth="59.0" promptText="M">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cText" alignment="CENTER" layoutX="173.0" layoutY="388.0" onAction="#handleCMYKAction" prefHeight="39.0" prefWidth="59.0" promptText="C">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" layoutX="173.0" layoutY="283.0" onAction="#handleXYZAction" prefHeight="39.0" prefWidth="59.0" promptText="X" fx:id="xText">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="yText1" alignment="CENTER" layoutX="308.0" layoutY="283.0" onAction="#handleXYZAction" prefHeight="39.0" prefWidth="59.0" promptText="Y">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="zText" alignment="CENTER" layoutX="445.0" layoutY="283.0" onAction="#handleXYZAction" prefHeight="39.0" prefWidth="59.0" promptText="Z">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="kText" alignment="CENTER" layoutX="582.0" layoutY="388.0" onAction="#handleCMYKAction" prefHeight="39.0" prefWidth="59.0" promptText="K">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="notificationText" layoutX="231.0" layoutY="492.0" prefHeight="27.0" prefWidth="248.0" />
+      <Slider fx:id="rSlider" layoutX="141.0" layoutY="236.0" max="255.0" onMouseReleased="#handleRGBSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="gSlider" layoutX="277.0" layoutY="236.0" max="255.0" onMouseReleased="#handleRGBSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="bSlider" layoutX="413.0" layoutY="236.0" max="255.0" onMouseReleased="#handleRGBSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider layoutX="141.0" layoutY="340.0" max="95.047" onMouseReleased="#handleXYZSliderEvent" prefHeight="21.0" prefWidth="123.0" fx:id="xSlider" />
+      <Slider fx:id="ySlider1" layoutX="277.0" layoutY="340.0" onMouseReleased="#handleXYZSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="zSlider" layoutX="413.0" layoutY="340.0" max="108.883" onMouseReleased="#handleXYZSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="ySlider2" layoutX="413.0" layoutY="445.0" onMouseReleased="#handleCMYKSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="mSlider" layoutX="277.0" layoutY="445.0" onMouseReleased="#handleCMYKSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="cSlider" layoutX="141.0" layoutY="445.0" onMouseReleased="#handleCMYKSliderEvent" prefHeight="21.0" prefWidth="123.0" />
+      <Slider fx:id="kSlider" layoutX="549.0" layoutY="445.0" onMouseReleased="#handleCMYKSliderEvent" prefHeight="21.0" prefWidth="123.0" />     
+    </children>
+</AnchorPane>
