@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="385.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicfiles.GraphicFilesController">
+    <children>
+        <Button fx:id="button" layoutX="14.0" layoutY="14.0" onAction="#handleButtonAction" text="Choose a directory" />
+      <TableView fx:id="tableView" layoutX="13.0" layoutY="56.0" prefHeight="320.0" prefWidth="616.0">
+        <columns>
+          <TableColumn prefWidth="172.0" style="-fx-alignment: CENTER;" text="Name">
+                <cellValueFactory><PropertyValueFactory property="fileName" /></cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="97.0" style="-fx-alignment: CENTER;" text="Size (pixels)">
+                <cellValueFactory><PropertyValueFactory property="size" /></cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="124.0" style="-fx-alignment: CENTER;" text="Resolution (dpi)">
+                <cellValueFactory><PropertyValueFactory property="resolution" /></cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="73.0" style="-fx-alignment: CENTER;" text="Bit depth">
+                <cellValueFactory><PropertyValueFactory property="bitDepth" /></cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="149.0" style="-fx-alignment: CENTER;" text="Compression">
+                <cellValueFactory><PropertyValueFactory property="compressionType" /></cellValueFactory>
+          </TableColumn>
+        </columns>
+      </TableView>
+      <Label fx:id="timeLabel" layoutX="452.0" layoutY="20.0" prefHeight="27.0" prefWidth="174.0" textAlignment="RIGHT" />
+    </children>
+</AnchorPane>
