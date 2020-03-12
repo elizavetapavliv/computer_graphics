@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class GraphicFilesController implements Initializable {
@@ -33,19 +34,25 @@ public class GraphicFilesController implements Initializable {
     
     private DirectoryChooser directoryChooser;
     
+    private FileChooser fileChooser;
+    
     @FXML
-    private void handleButtonAction(ActionEvent event) {   
+    private void handleDirectoryButtonAction(ActionEvent event) {   
         processFiles();
     }
-
-    public void processFiles() {
+    
+    @FXML
+    private void handleFileButtonAction(ActionEvent event) {   
+        processFile();
+    }
+    
+    public void processFile(){
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        File directory = directoryChooser.showDialog(stage);
+        File file = fileChooser.showOpenDialog(stage);
         ObservableList<ImageMetadata> data = FXCollections.observableArrayList();
-        File[] graphicFiles = directory.listFiles();
 
-        long startTime = System.nanoTime();
-        for (File file : graphicFiles) {
+        if (file != null) {
+            long startTime = System.nanoTime();
             ImageMetadata imageMetadata = new ImageMetadata();
             try {
                 if (imageMetadata.initMetadataByFileType(file)) {
@@ -55,15 +62,41 @@ public class GraphicFilesController implements Initializable {
             catch (IOException | JpegProcessingException | PngProcessingException | TiffProcessingException ex) {
                 Logger.getLogger(GraphicFilesController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            long endTime = System.nanoTime();
+            timeLabel.setText(String.format("File processing time: %d ms\n", (endTime - startTime) / 1000000));
+            tableView.setItems(data);
         }
-        long endTime = System.nanoTime();
-        timeLabel.setText(String.format("File processing time: %d ms\n", (endTime - startTime) / 1000000));
-        tableView.setItems(data);
+    }
+
+    public void processFiles() {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        File directory = directoryChooser.showDialog(stage);
+        ObservableList<ImageMetadata> data = FXCollections.observableArrayList();
+        if (directory != null) {
+            File[] graphicFiles = directory.listFiles();
+            long startTime = System.nanoTime();
+            for (File file : graphicFiles) {
+                ImageMetadata imageMetadata = new ImageMetadata();
+                try {
+                    if (imageMetadata.initMetadataByFileType(file)) {
+                        data.add(imageMetadata);
+                    }
+                } 
+                catch (IOException | JpegProcessingException | PngProcessingException | TiffProcessingException ex) {
+                    Logger.getLogger(GraphicFilesController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            long endTime = System.nanoTime();
+            timeLabel.setText(String.format("File processing time: %d ms\n", (endTime - startTime) / 1000000));
+            tableView.setItems(data);
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Choose a directory");
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose a file");      
     }      
 }

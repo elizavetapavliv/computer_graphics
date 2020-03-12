@@ -1,7 +1,5 @@
 package graphicfiles;
 
-import com.drew.imaging.ImageMetadataReader;
-import com.drew.imaging.ImageProcessingException;
 import com.drew.imaging.bmp.BmpMetadataReader;
 import com.drew.imaging.gif.GifMetadataReader;
 import com.drew.imaging.jpeg.JpegMetadataReader;
@@ -11,10 +9,8 @@ import com.drew.imaging.png.PngMetadataReader;
 import com.drew.imaging.png.PngProcessingException;
 import com.drew.imaging.tiff.TiffMetadataReader;
 import com.drew.imaging.tiff.TiffProcessingException;
-import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.MetadataException;
-import com.drew.metadata.Tag;
 import com.drew.metadata.bmp.BmpHeaderDescriptor;
 import com.drew.metadata.bmp.BmpHeaderDirectory;
 import com.drew.metadata.exif.ExifIFD0Descriptor;
