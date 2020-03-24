@@ -60,7 +60,7 @@ public class DigitalImageProcessingController implements Initializable {
     private final ObservableList<String> highPassFilters = FXCollections.observableArrayList(
             "Laplasian 1", "Laplasian 2", "Laplasian 3", "LoG");
     
-    private final ObservableList<String> thresholdFilters = FXCollections.observableArrayList("Local 1", "Local 2", "Adaptive");
+    private final ObservableList<String> thresholdFilters = FXCollections.observableArrayList("Local (Niblack)", "Local (min max)", "Adaptive");
     
     private boolean isThresholding;
     
