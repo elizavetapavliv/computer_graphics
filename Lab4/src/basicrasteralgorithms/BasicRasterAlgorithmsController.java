@@ -185,13 +185,17 @@ public class BasicRasterAlgorithmsController implements Initializable {
     private void toggleLineCircle(boolean isLine){
         if(isLine){
             x1RLabel.setText("x1");
-            x1RText.setText(Integer.toString(defaultX1));
+            if(x1 < -9 || x1 > 9){
+                x1RText.setText(Integer.toString(defaultX1));
+            }
             y1Label.setVisible(true);
             y1Text.setVisible(true);
         }
         else{
             x1RLabel.setText("r");
-            x1RText.setText(Integer.toString(defaultR));
+            if(r < 0 || r > 9){
+                x1RText.setText(Integer.toString(defaultR));
+            }         
             y1Label.setVisible(false);
             y1Text.setVisible(false);
         }
