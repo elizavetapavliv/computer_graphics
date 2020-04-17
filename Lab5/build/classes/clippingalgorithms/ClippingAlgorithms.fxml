@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import clippingalgorithms.models.PolygonLineChart?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="568.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clippingalgorithms.ClippingAlgorithmsController">
+    <children>
+        <PolygonLineChart fx:id="lineChart" layoutX="9.0" layoutY="68.0" legendVisible="false" prefHeight="500.0" prefWidth="500.0">
+            <xAxis>
+                <NumberAxis autoRanging="false" lowerBound="-10.0" minorTickCount="1" prefHeight="31.0" prefWidth="440.0" tickUnit="1.0" translateY="-220.0" upperBound="10.0" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis autoRanging="false" lowerBound="-10.0" minorTickCount="1" prefHeight="440.0" prefWidth="34.0" side="LEFT" tickUnit="1.0" translateX="219.0" upperBound="10.0" />
+            </yAxis>
+        </PolygonLineChart>
+        <Label layoutX="286.0" layoutY="80.0" text="y" />
+        <Label layoutX="483.0" layoutY="278.0" text="x" />
+        <ComboBox fx:id="algorithmComboBox" layoutX="190.0" layoutY="15.0" onAction="#handleComboBoxAction" prefHeight="30.0" prefWidth="150.0" promptText="Algorithm" />
+        <Button fx:id="clipButton" layoutX="377.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClipButtonAction" prefHeight="30.0" prefWidth="106.0" text="Clip" />
+        <Button fx:id="fileButton" layoutX="39.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleFileButtonAction" prefHeight="30.0" prefWidth="106.0" text="Choose file" />
+    </children>
+</AnchorPane>
