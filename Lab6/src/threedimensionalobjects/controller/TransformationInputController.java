@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.MeshView;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import threedimensionalobjects.ThreeDimensionalObjects;
 import threedimensionalobjects.TransformationMatrix;
@@ -23,8 +22,6 @@ public class TransformationInputController implements Initializable {
     
     @FXML
     private TextField tX, tY, tZ, rX, rY, rZ, sX, sY, sZ;
-    
-    private Rotate xAxis, yAxis, zAxis;   
     
     private MeshView letter;
     
@@ -101,14 +98,7 @@ public class TransformationInputController implements Initializable {
         
         points = (float[]) stage.getProperties().get("points");
         initialPoints = (float[]) stage.getProperties().get("initialPoints");
-        
         letter = (MeshView) stage.getProperties().get("letter"); 
-        letter.getTransforms().removeIf(o -> o instanceof Rotate);
-        
-        xAxis = new Rotate(0, Rotate.X_AXIS);
-        yAxis = new Rotate(0, Rotate.Y_AXIS);
-        zAxis = new Rotate(0, Rotate.Z_AXIS);
-        letter.getTransforms().addAll(xAxis, yAxis, zAxis);
         matrix = new ArrayList<>();
     }
     
